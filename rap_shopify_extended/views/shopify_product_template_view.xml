@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="rap_shopify_extended_shopify_product_template_view" model="ir.ui.view">
+        <field name="name">rap.shopify.extended.shopify.product.template.view</field>
+        <field name="model">shopify.product.template.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_product_tree_view_ept"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='exported_in_shopify']" position="after">
+                <field name="product_to_update" invisible="1"/>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-warning">product_to_update==True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='%(shopify_ept.action_wizard_shopify_update_stock)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="rap_shopify_product_template_search_view_ept" model="ir.ui.view">
+        <field name="name">rap.shopify.extended.shopify.product.template.search</field>
+        <field name="model">shopify.product.template.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_product_template_search_view_ept"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='not_exported_in_odoo']" position="after">
+                <separator/>
+                <filter string="Product to Update" name="product_to_update" domain="[('product_to_update', '=', True)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="shopify_product_product_tree_view_inherit_ept" model="ir.ui.view">
+        <field name="name">shopify.product.product.ept.tree.inherit</field>
+        <field name="model">shopify.product.product.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_product_product_tree_view_ept"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='exported_in_shopify']" position="after">
+                <field name="variant_sequence" invisible="1"/>
+            </xpath>
+             <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">variant_sequence asc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_shopify_odoo_location_mapping_form" model="ir.ui.view">
+        <field name="name">view.shopify.location.mapping.form</field>
+        <field name="model">shopify.instance.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_instance_form_view_ept"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='analytic_account_tags']" position="after">
+                <page name="mapping_locations" string="Shopify/Odoo Locations">
+                    <group>
+                        <field name="shopify_odoo_loc_ids">
+                            <tree nolabel="1" create="1" editable='bottom'>
+                                <field name="location_id" required="1"/>
+                                <field name="shopify_location_id" required="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

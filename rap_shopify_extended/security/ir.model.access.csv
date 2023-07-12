@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shopify_account_payment_user,access.shopify.account.payment,model_shopify_account_payment,,1,1,1,1
+access_shopify_customer_account_user,access.shopify.customer.account,model_shopify_customer_account,,1,1,1,1
+access_shopify_ir_model_user,access.ir.model.user,base.model_ir_model,,1,0,0,0
+access_shopify_ir_model_fields_user,access.ir.model.fields.user,base.model_ir_model_fields,,1,0,0,0
+access_shopify_odoo_location_user,access.shopify.odoo.location.user,model_shopify_odoo_location,,1,1,1,1

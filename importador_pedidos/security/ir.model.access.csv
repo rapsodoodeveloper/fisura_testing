@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_imp_precio_prod,imp_precio_prod,model_imp_precio_prod,base.group_user,1,1,1,1
+access_lineas_excel_general,lineas_excel_general,model_lineas_excel,sales_team.group_sale_manager,1,1,1,1
+access_lineas_excellineas_general,lineas_excellineas_general,model_lineas_excellineas,sales_team.group_sale_manager,1,1,1,1
+access_lineas_excelpedidos_general,lineas_excelpedidos_general,model_lineas_excelpedidos,sales_team.group_sale_manager,1,1,1,1
+access_lineas_pppvp_general,model_product_template_pvp,model_product_template_pvp,sales_team.group_sale_manager,1,1,1,1
+access_imp_fech_fact,model_imp_fech_fact,model_imp_fech_fact,base.group_user,1,1,1,1

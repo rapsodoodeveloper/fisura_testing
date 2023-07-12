@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="rap_view_update_product_process_manual" model="ir.ui.view">
+        <field name="name">rap.view.update.product.process.manual</field>
+        <field name="model">shopify.process.import.export</field>
+        <field name="inherit_id" ref="shopify_ept.view_update_product_process_manual"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='Export Product']" position="after">
+                <group string="Select the Basic details to be updated"
+                       attrs="{'invisible':[('shopify_is_update_basic_detail', '=', False)]}">
+                    <group>
+                        <field name="shopify_is_update_name"/>
+                        <field name="shopify_is_update_categ"/>
+                        <field name="shopify_is_update_product_season"/>
+                        <field name="shopify_is_update_product_option"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

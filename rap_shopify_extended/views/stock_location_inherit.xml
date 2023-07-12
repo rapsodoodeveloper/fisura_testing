@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Stock location to add field-->
+    <record id="view_stock_location_bimani_form_inherit" model="ir.ui.view">
+        <field name="name">stock.location.bimani.form</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='return_location']" position="after">
+                <field name="is_default_return"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

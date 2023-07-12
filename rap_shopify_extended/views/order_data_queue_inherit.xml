@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="raps_order_data_queue_inherit" model="ir.ui.view">
+        <field name="name">raps.order.data.queue.inherit</field>
+        <field name="model">shopify.order.data.queue.ept</field>
+        <field name="inherit_id" ref="shopify_ept.view_shopify_order_data_queue_ept_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_data_queue_line_ids']/tree/field[@name='state']" position="after">
+                <field name="ignore_rec"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="raps_order_data_queue_line_ept_inherit" model="ir.ui.view">
+        <field name="name">raps.shopify.order.data.queue.line.ept.inherit</field>
+        <field name="model">shopify.order.data.queue.line.ept</field>
+        <field name="inherit_id" ref="shopify_ept.view_shopify_order_data_queue_line_ept_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="edit">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="ignore_rec" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

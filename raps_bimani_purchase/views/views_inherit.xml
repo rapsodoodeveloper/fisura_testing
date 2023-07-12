@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Inherit Purchase Form -->
+    <record id="view_purchase_location_bimani_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.location.bimani.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_location_by_line.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="company_id" invisible="1"/>
+                <field name="picking_type_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_line_form2" model="ir.ui.view">
+        <field name="name">purchase.order.line.form</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_form2" />
+        <field name="arch" type="xml">
+            <field name='name' position="after">
+                <field name="picking_type_id" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit Stock location to add field-->
+    <record id="view_stock_location_bimani_form_inherit" model="ir.ui.view">
+        <field name="name">stock.location.bimani.form</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='return_location']" position="after">
+                <field name="is_stock"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Stock picking search view-->
+    <record id="view_search_bimani_inherit_stock_picking" model="ir.ui.view">
+        <field name="name">stock.picking.bimani.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='picking_type']" position="after">
+                <filter string="Location" name="group_by_location" context="{'group_by': 'location_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Stock picking type form view-->
+    <record id="view_picking_type_form_inherit_mrp" model="ir.ui.view">
+        <field name="name">Operation Types</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='show_operations']" position="before">
+                <field name="is_reception"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

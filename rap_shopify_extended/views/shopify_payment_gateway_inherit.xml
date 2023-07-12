@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="rap_shopify_extended_payment_gateway_form" model="ir.ui.view">
+        <field name="name">rap.shopify.extended.payment.gateway.form.view</field>
+        <field name="model">shopify.payment.gateway.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_payment_gateway_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='shopify_instance_id']" position="after">
+                <field name="is_standard_payment_gateway"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

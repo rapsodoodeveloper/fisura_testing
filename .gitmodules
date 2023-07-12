@@ -1,0 +1,28 @@
+[submodule "OCA/account-financial-tools"]
+	path = OCA/account-financial-tools
+	url = https://github.com/OCA/account-financial-tools.git
+	branch = 15.0
+[submodule "OCA/reporting-engine"]
+	path = OCA/reporting-engine
+	url = https://github.com/OCA/reporting-engine.git
+	branch = 15.0
+[submodule "OCA/server-ux"]
+	path = OCA/server-ux
+	url = https://github.com/OCA/server-ux.git
+	branch = 15.0
+[submodule "OCA/queue"]
+	path = OCA/queue
+	url = https://github.com/OCA/queue.git
+	branch = 15.0
+[submodule "OCA/account-invoicing"]
+	path = OCA/account-invoicing
+	url = https://github.com/OCA/account-invoicing.git
+	branch = 15.0
+[submodule "OCA/l10n-spain"]
+	path = OCA/l10n-spain
+	url = https://github.com/OCA/l10n-spain.git
+	branch = 15.0
+[submodule "OCA/web"]
+	path = OCA/web
+	url = https://github.com/OCA/web.git
+	branch = 15.0

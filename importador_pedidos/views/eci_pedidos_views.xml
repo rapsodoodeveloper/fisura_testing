@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<odoo>
+
+        <!--   IMPORTADOR DE FECHAS DE FACTURA  -->
+        <record model="ir.ui.view" id="imp_fech_fact_tree_view">
+            <field name="name">imp.fech.fact.tree.view</field>  
+            <field name="model">imp.fech.fact</field>
+            <field name="type">tree</field>  
+            <field name="arch" type="xml"> 
+                <tree string="Lineas de pedido" >    
+                    <field name="factura" /> 
+                    <field name="fecha" /> 
+                    <field name="error" /> 
+                </tree>
+           </field>
+        </record>
+
+        <record id="imp_fech_fact_action" model="ir.actions.act_window">
+            <field name="name">imp.fact.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">imp.fech.fact</field>
+            <field name="view_mode">tree,form</field>    
+        </record>
+
+        <!--- importador precios -->
+        <record model="ir.ui.view" id="importacion_fisura_precios_productos_usd">
+            <field name="name">importacion.fisura.precios.productos.usd</field>
+            <field name="model">product.template</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="after">
+                    <field name="p_org"/>
+                    <field name="p_usd"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="importacion_fisura_lineas_pedido">
+            <field name="name">importacion.fisura.cuentas.bancarias</field>
+            <field name="model">imp.precio.prod</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="precio_origen"/>
+                    <field name="precio_usd"/>
+                    <field name="error"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="imp_p_precios_action">
+            <field name="name">Importar precios USD</field>
+            <field name="res_model">imp.precio.prod</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="precios_imp_menu_action" name="Importar precios USD" action="imp_p_precios_action" parent="sale.sale_menu_root"/>
+    
+    
+    <!-- Vista de listado de las lineas -->
+        <record model="ir.ui.view" id="product_template_tree_view">
+            <field name="name">product.template.pvp.tree.view</field>
+            <field name="model">product.template.pvp</field>
+            <field name="type">tree</field>  
+            <field name="arch" type="xml">
+                <tree string="PvP" editable="bottom">    
+                    <field name="ref" />  
+                    <field name="pvp" />  
+                    <button type="object" name="tramitar" string="Cargar precios" />    
+                </tree>        
+            </field>
+        </record> 
+    
+    <!-- Vista de listado de las lineas -->
+        <record model="ir.ui.view" id="excel_lineas_tree_view">
+            <field name="name">excel.lineas.tree.view</field>
+            <field name="model">lineas.excel</field>
+            <field name="type">tree</field>  
+            <field name="arch" type="xml">
+                <tree string="Lineas" editable="bottom">    
+                    <field name="col1" />  
+                    <field name="col2" />  
+                    <field name="col3" />  
+                    <field name="col4" /> 
+                    <field name="col5" /> 
+                    <field name="col6" />
+                    <field name="col7" /> 
+                    <field name="col8" />   
+                    <field name="col9" /> 
+                    <field name="col10" />  
+                    <button type="object" name="tramitar" string="Crear Pedidos" /> 
+                </tree>        
+            </field>
+        </record> 
+
+    <!-- Vista de listado de pedidos -->
+        <record model="ir.ui.view" id="excel_pedidos_tree_view">
+            <field name="name">excel.pedidos.tree.view</field> 
+            <field name="model">lineas.excelpedidos</field>
+            <field name="type">tree</field>  
+            <field name="arch" type="xml"> 
+                <tree string="Pedidos">    
+                    <field name="num_pedido" />   
+                    <field name="fecha_pedido" required="1"/> 
+                    <field name="lineas" />
+                    <field name="cliente" domain="[('supplier_rank', '=', 0)]" />   
+                    <field name="error" />
+                </tree>         
+            </field>
+        </record>
+
+         <!-- Vista de formulario de pedidos -->
+        <record model="ir.ui.view" id="excel_pedidos_form_view">
+            <field name="name">excel.pedidos.form.view</field> 
+            <field name="model">lineas.excelpedidos</field>
+            <field name="type">form</field>  
+            <field name="arch" type="xml"> 
+                <form string="Productos"> 
+                    <header>
+                        <button type="object" name="crear_pedidos" string="Crear Pedidos"/> 
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="num_pedido" />  
+                            <field name="fecha_pedido"/>
+                            <field name="error" />
+                            <field name="comercial" />
+                            <field name="cliente" domain="[('supplier_rank', '=', 0)]" /> 
+                            <field name="idioma" />
+                            <field name="tarifa" />
+                        </group>
+                        <notebook>
+                            <page string="Lineas">
+                                <field name="lineas">
+                                    <tree string="Lineas" editable="bottom" >  
+                                        <field name="ean" />  
+                                        <field name="product" />  
+                                        <field name="price" /> 
+                                        <field name="dto" /> 
+                                        <field name="quantity" />   
+                                        <field name="error" /> 
+                                    </tree> 
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>         
+            </field>
+        </record>
+
+        <record id="importador_pedidos_linea_action" model="ir.actions.act_window">
+            <field name="name">Lineas de pedidos</field>
+            <field name="res_model">lineas.excel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="excel_lineas_tree_view"/>
+            <field name="help">Carga el CSV del pedido. Una vez cargado, pasa a Crear Pedidos.</field>            
+        </record>
+        
+        <record id="importador_pedidos_action" model="ir.actions.act_window">
+            <field name="name">Pedidos de venta</field>
+            <field name="res_model">lineas.excelpedidos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>  
+            <field name="help">Carga primero el CSV del pedido. Despues podrás crear el pedidos de venta desde aqui.</field>               
+        </record>
+
+        <record id="importador_productos_pvp_menu_act" model="ir.actions.act_window">
+            <field name="name">Productos PvP</field>
+            <field name="res_model">product.template.pvp</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>  
+            <field name="help">Carga primero el CSV de los productos y sus PvP. Despues podrás cargarlos en sus fichas.</field>
+        </record>
+
+        <menuitem  name="Importaciones" id="tecnocode_migration_menuitem_base" groups="base.group_user" /> 
+        
+        <menuitem  name="Pedidos" id="tecnocode_pedidos_menuitem" parent="tecnocode_migration_menuitem_base"  groups="base.group_user"/> 
+    
+        <menuitem  name="Productos" id="tecnocode_precios_pvp_menuitem_base" parent="tecnocode_migration_menuitem_base"  groups="base.group_user"/>     
+
+        <menuitem name="Cargar lineas de pedido" action="importador_pedidos_linea_action"
+            id="importador_pedidos_linea_menu_act" sequence="10" parent="tecnocode_pedidos_menuitem"  groups="base.group_user"/>
+            
+        <menuitem name="Crear pedidos de venta" action="importador_pedidos_action" 
+            id="importador_pedidos_menu_act" sequence="15" parent="tecnocode_pedidos_menuitem"  groups="base.group_user"/>
+
+        <menuitem name="PvP" action="importador_productos_pvp_menu_act"
+            id="importador_productos_pvp_menu_act_menu" sequence="10" parent="tecnocode_precios_pvp_menuitem_base"  groups="base.group_user"/>
+</odoo>

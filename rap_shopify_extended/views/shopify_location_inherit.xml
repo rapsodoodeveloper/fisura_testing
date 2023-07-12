@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="rap_shopify_extended_shopify_location_form_view" model="ir.ui.view">
+        <field name="name">rap.shopify.extended.shopify.location.form.view</field>
+        <field name="model">shopify.location.ept</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_synced_locations_data_form_view_ept"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_primary_location']" position="after">
+                <field name="is_web_location"/>
+                <field name="is_web_return_location"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

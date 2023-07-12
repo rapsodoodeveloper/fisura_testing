@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_template_form_view_inh" model="ir.ui.view">
+        <field name="name">product.template.form.view.inh</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='uom_po_id']" position="after">
+                <field name="eol" string="EOL"/>
+                <field name="edp" string="EDP"/>
+            </xpath>
+        </field>
+    </record>
+
+   
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_partner_form_view_inh" model="ir.ui.view">
+        <field name="name">res.partner.form.view.inh</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_account_payable_id']" position="after">
+                <field name="cyc" string="CYC"/>
+                <field name="credit_granted" string="Credit Granted"/>
+            </xpath>
+        </field>
+    </record>
+
+   
+
+</odoo>

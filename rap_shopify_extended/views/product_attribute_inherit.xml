@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="product_attribute_view_bimani_form" model="ir.ui.view">
+        <field name="name">product.attribute.form.bimani.inherit</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <field name='create_variant' position='after'>
+                <field name="is_color"/>
+            </field>
+        </field>
+    </record>
+</odoo>

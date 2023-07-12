@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="rap_shopify_extended_stock_picking_view" model="ir.ui.view">
+        <field name="name">rap.shopify.extended.stock.picking.view</field>
+        <field name="model">stock.picking</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="attributes">
+                <attribute name="domain">[('usage','=', 'internal')]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location_dest_id']" position="attributes">
+                <attribute name="domain">[('usage','=', 'internal')]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom']" position="after">
+                <field name="qty_by_origin"/>
+            </xpath>
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="sale_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

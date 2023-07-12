@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_fields
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220712\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-04 15:02+0000\n"
+"PO-Revision-Date: 2022-12-04 15:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__anonymous
+msgid "ANONYMOUS"
+msgstr "ANÓNIMO"
+
+#. module: custom_fields
+#: model_terms:ir.ui.view,arch_db:custom_fields.view_res_partner_form_view_inh
+msgid "CYC"
+msgstr "CYC"
+
+#. module: custom_fields
+#: model:ir.model,name:custom_fields.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__countries_without_coverage
+msgid "Countries without coverage"
+msgstr "Países sin cobertura"
+
+#. module: custom_fields
+#: model_terms:ir.ui.view,arch_db:custom_fields.view_res_partner_form_view_inh
+msgid "Credit Granted"
+msgstr "Crédito Concedido"
+
+#. module: custom_fields
+#: model:ir.model.fields,field_description:custom_fields.field_res_partner__credit_granted
+#: model:ir.model.fields,field_description:custom_fields.field_res_users__credit_granted
+msgid "Credit granted"
+msgstr "Crédito concedido"
+
+#. module: custom_fields
+#: model:ir.model.fields,field_description:custom_fields.field_res_partner__cyc
+#: model:ir.model.fields,field_description:custom_fields.field_res_users__cyc
+msgid "Cyc"
+msgstr "Cyc"
+
+#. module: custom_fields
+#: model:ir.model.fields,field_description:custom_fields.field_product_product__edp
+#: model:ir.model.fields,field_description:custom_fields.field_product_template__edp
+#: model_terms:ir.ui.view,arch_db:custom_fields.view_product_template_form_view_inh
+msgid "EDP"
+msgstr "EDP"
+
+#. module: custom_fields
+#: model:ir.model.fields,field_description:custom_fields.field_product_product__eol
+#: model:ir.model.fields,field_description:custom_fields.field_product_template__eol
+#: model_terms:ir.ui.view,arch_db:custom_fields.view_product_template_form_view_inh
+msgid "EOL"
+msgstr "EOL"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__individuals
+msgid "Individuals"
+msgstr "Particulares"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__linked_businesses
+msgid "Linked Businesses"
+msgstr "Empresas Vinculadas"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__no
+msgid "NO"
+msgstr "NO"
+
+#. module: custom_fields
+#: model:ir.model,name:custom_fields.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__public_organisms
+msgid "Public Organisms"
+msgstr "OrganismosPúblicos"
+
+#. module: custom_fields
+#: model:ir.model.fields.selection,name:custom_fields.selection__res_partner__cyc__yes
+msgid "YES"
+msgstr "SI"
